@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography'
 import accounting from "accounting";;
 
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import Lorax from '../assets/Lorax.png'
 
 
@@ -58,6 +59,9 @@ export default function Product() {
             <CardActions disableSpacing>
                 <IconButton aria-label='Add to Cart'>
                     <AddShoppingCart fontSize='large' />
+                </IconButton>
+                <IconButton>
+                    <RemoveShoppingCartIcon fontSize='large' />
                 </IconButton>
             </CardActions>
         </Card>
