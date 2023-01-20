@@ -3,17 +3,31 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 import Pawe from '../assets/BlancoPawe.svg'
 
+import { styled, createTheme, ThemeProvider } from '@mui/system';
+
 export default function ButtonAppBar() {
+
+    const customTheme=createTheme({
+        palette: {
+            primary: {
+                main: '#f06292',
+            },
+            secondary: {
+                main: '#ba68c8',
+            },
+        },
+    });
+
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="fixed">
+            <AppBar position="fixed" color="transparent">
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -28,9 +42,11 @@ export default function ButtonAppBar() {
                         <img src={Pawe} alt="" />
                     </Typography>
                     <IconButton>
-                        <ShoppingCartIcon />
+                        <ShoppingCartIcon color="primary" />
                     </IconButton>
-                    <Button color="inherit">Ordenar</Button>
+                    <IconButton>
+                        <ShoppingCartCheckoutIcon color="secondary"/>
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </Box>
