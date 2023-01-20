@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import Product from './components/Product'
-
-import Pawe from './assets/BlancoPawe.svg'
+import Navbar from './components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <img src={Pawe} alt="Pawe" />
+      <Navbar/>
       <Product />
     </div>
   )
