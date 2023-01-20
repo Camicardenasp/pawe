@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Product from './components/Product'
 import Navbar from './components/Navbar'
+import Products from './components/Products'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,7 +9,8 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Product />
+      <Products/>
+      {/* <Product /> */}
     </div>
   )
 }
