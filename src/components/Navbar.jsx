@@ -8,13 +8,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
+import Badge from '@mui/material/Badge';
 import Pawe from '../assets/BlancoPawe.svg'
-
+import { red } from '@mui/material/colors'; 
 import { styled, createTheme, ThemeProvider } from '@mui/system';
+
 
 export default function ButtonAppBar() {
 
-    const customTheme=createTheme({
+    const theme=createTheme({
         palette: {
             primary: {
                 main: '#f06292',
@@ -41,8 +43,10 @@ export default function ButtonAppBar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <img src={Pawe} alt="" />
                     </Typography>
-                    <IconButton>
-                        <ShoppingCartIcon color="primary" />
+                    <IconButton aria-label="cart">
+                        <Badge badgeContent={4} color="secondary">
+                            <ShoppingCartIcon color="primary"/>
+                        </Badge>
                     </IconButton>
                     <IconButton>
                         <ShoppingCartCheckoutIcon color="secondary"/>
