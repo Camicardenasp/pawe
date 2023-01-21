@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import products from '../productsData'
 import CheckoutCard from './CheckoutCard';
+import { Total } from './Total';
 
 const CheckoutPage = () => {
 
@@ -31,7 +32,7 @@ const CheckoutPage = () => {
                 </Grid >
                 <Grid item xs={12} sm={4} md={3}>
                     <Typography align='center' gutterBottom variant='h4'>
-                        Total
+                        <Total/>
                     </Typography>
                 </Grid>
             </Grid>
