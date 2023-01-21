@@ -9,8 +9,9 @@ import Typography from '@mui/material/Typography'
 import accounting from "accounting";
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function Product({ product: { id, name, image, price, description } }) {
+export default function CheckoutCard({ product: { id, name, image, price, description } }) {
     return (
         <Card sx={{ minWidth: 300 }} key={id}>
             <CardHeader
@@ -37,6 +38,9 @@ export default function Product({ product: { id, name, image, price, description
                 </IconButton>
                 <IconButton>
                     <RemoveShoppingCartIcon fontSize='large' />
+                </IconButton>
+                <IconButton>
+                    <DeleteIcon fontSize="large"/>
                 </IconButton>
             </CardActions>
         </Card>
