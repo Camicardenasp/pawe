@@ -7,26 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-
 import Badge from '@mui/material/Badge';
 import Pawe from '../assets/BlancoPawe.svg'
-import { red } from '@mui/material/colors'; 
-import { styled, createTheme, ThemeProvider } from '@mui/system';
-
+import {createTheme } from '@mui/system';
 
 export default function ButtonAppBar() {
-
-    const theme=createTheme({
-        palette: {
-            primary: {
-                main: '#f06292',
-            },
-            secondary: {
-                main: '#ba68c8',
-            },
-        },
-    });
-
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" color="transparent">

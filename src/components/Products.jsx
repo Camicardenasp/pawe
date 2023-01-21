@@ -20,15 +20,6 @@ export default function Products() {
                 <Grid item xs={12} sm={6} md={6} >
                     <Product />
                 </Grid>
-                <Grid item xs={12} sm={6} md={6}>
-                    <Item>xs=6 md=4</Item>
-                </Grid>
-                <Grid item xs={12} sm={6} md={6}>
-                    <Item>xs=6 md=4</Item>
-                </Grid>
-                <Grid item xs={12} sm={6} md={6}>
-                    <Item>xs=6 md=8</Item>
-                </Grid>
             </Grid>
         </Box>
     );
