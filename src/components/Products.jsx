@@ -17,10 +17,11 @@ const Item=styled(Paper)(({ theme }) => ({
 export default function Products() {
     return (
         <Box sx={{ flexGrow: 1 }}>
+            <h3><i>Hechos especialmente para ti ...</i> </h3>
             <Grid container spacing={2}>
                 {
                     products.map(product => (
-                        <Grid key={product.id} item xs={12} sm={6} md={3} >
+                        <Grid key={product.id} item xs={12} sm={6} md={6} >
                             <Product key={product.id} product={product}/>
                         </Grid>
                     ))

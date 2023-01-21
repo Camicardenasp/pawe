@@ -6,7 +6,6 @@ const Root = () => {
     return (
         <>
             <Navbar/>
-            <h3><i>Hechos especialmente para ti ...</i> </h3>
             <div>
                 <Outlet/>
             </div>
