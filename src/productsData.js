@@ -32,7 +32,7 @@ const products = [
         name: "Monedero Crochet",
         price: 50000,
         image: "/MonederoCrochet.png",
-        description: "Tejido a Mano",
+        description: "Monedero de Tela",
     },
     {
         id: 6,

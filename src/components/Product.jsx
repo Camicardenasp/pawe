@@ -14,11 +14,6 @@ export default function Product({ product: { id, name, image, price, description
     return (
         <Card sx={{ minWidth: 300 }} key={id}>
             <CardHeader
-                action={
-                    <Typography>
-                        {accounting.formatMoney(price,"$",0)}
-                    </Typography>
-                }
                 title={name}
                 subheader="Disponible"
             />
@@ -31,6 +26,9 @@ export default function Product({ product: { id, name, image, price, description
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
                     {description}
+                </Typography>
+                <Typography>
+                    {accounting.formatMoney(price, "$", 0)}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
