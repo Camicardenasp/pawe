@@ -9,29 +9,28 @@ import Typography from '@mui/material/Typography'
 import accounting from "accounting";
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
-import Lorax from '../assets/Lorax.png'
 
-export default function Product() {
+export default function Product({ product: { id, name, image, price, description } }) {
     return (
-        <Card sx={{ minWidth: 300 }}>
+        <Card sx={{ minWidth: 300 }} key={id}>
             <CardHeader
                 action={
                     <Typography>
-                        {accounting.formatMoney(200000,"$",0)}
+                        {accounting.formatMoney(price,"$",0)}
                     </Typography>
                 }
-                title="Lorax"
-                subheader="Disponible"
+                title={name}
+                subheader={id}
             />
             <CardMedia
                 component="img"
                 height="194"
-                image={Lorax}
+                image={image}
                 alt="Bolso Lorax"
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    Bolso de Pompones
+                    {description}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
