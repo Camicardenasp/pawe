@@ -20,7 +20,7 @@ export default function Products() {
             <Grid container spacing={2}>
                 {
                     products.map(product => (
-                        <Grid key={product.id} item xs={12} sm={6} md={6} >
+                        <Grid key={product.id} item xs={12} sm={6} md={3} >
                             <Product key={product.id} product={product}/>
                         </Grid>
                     ))

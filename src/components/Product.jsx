@@ -20,7 +20,7 @@ export default function Product({ product: { id, name, image, price, description
                     </Typography>
                 }
                 title={name}
-                subheader={id}
+                subheader="Disponible"
             />
             <CardMedia
                 component="img"

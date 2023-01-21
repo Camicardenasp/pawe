@@ -14,7 +14,7 @@ import {createTheme } from '@mui/system';
 export default function ButtonAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="fixed" color="transparent">
+            <AppBar position="static" color="transparent">
                 <Toolbar>
                     <IconButton
                         size="large"
