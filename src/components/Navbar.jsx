@@ -9,7 +9,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Badge from '@mui/material/Badge';
 import Pawe from '../assets/BlancoPawe.svg'
-import {createTheme } from '@mui/system';
+import { Link } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function ButtonAppBar() {
     return (
@@ -25,17 +26,31 @@ export default function ButtonAppBar() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        <img src={Pawe} alt="" />
-                    </Typography>
-                    <IconButton aria-label="cart">
-                        <Badge badgeContent={4} color="secondary">
-                            <ShoppingCartIcon color="primary"/>
-                        </Badge>
-                    </IconButton>
+
+                    <Link to="/">
+                        <Typography>
+                            <HomeIcon color="secondary" />
+                        </Typography>
+                    </Link>
+
+                    <Link to="/products">
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                                <img src={Pawe} alt="" />
+                        </Typography>
+                    </Link>
+                    
+                    <Link to="/checkout-page">
+                        <IconButton aria-label="cart">
+                            <Badge badgeContent={4} color="secondary">
+                                <ShoppingCartIcon color="primary" />
+                            </Badge>
+                        </IconButton>
+                    </Link>
+
                     <IconButton>
                         <ShoppingCartCheckoutIcon color="secondary"/>
                     </IconButton>
+
                 </Toolbar>
             </AppBar>
         </Box>
