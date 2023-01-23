@@ -20,8 +20,8 @@ function Copyright() {
     return (
         <Typography variant="body2" color="text.secondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
+            <Link color="inherit" href="https://pawe.netlify.app">
+                Pawe Handmade Bags
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -29,7 +29,7 @@ function Copyright() {
     );
 }
 
-const steps=['Shipping address', 'Payment details', 'Review your order'];
+const steps=['Dirección de Entrega', 'Detalles del Pago', 'Revisa tu orden'];
 
 function getStepContent(step) {
     switch (step) {
@@ -75,7 +75,7 @@ export default function Checkout() {
                     </Typography>
                 </Toolbar>
             </AppBar> */}
-            
+
             <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
                 <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
                     <Typography component="h1" variant="h4" align="center">
