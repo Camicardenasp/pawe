@@ -1,9 +1,9 @@
 export const initialState = {
-    bascket: []
+    basket: []
 }
 
 export const actionTypes = {
-    ADD_TO_BASCKET: "ADD_TO_BASCKET"
+    ADD_TO_BASKET: "ADD_TO_BASKET"
 }
 
 const reducer = (state, action) => {

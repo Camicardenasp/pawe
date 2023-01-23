@@ -9,8 +9,27 @@ import Typography from '@mui/material/Typography'
 import accounting from "accounting";
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import {actionTypes} from '../reducer';
+import {useStateValue} from '../StateProvider';
 
 export default function Product({ product: { id, name, image, price, description } }) {
+    
+const [{basket}, dispatch] = useStateValue();
+
+    const addToBasket = () => {
+        dispatch({
+            type: actionTypes.ADD_TO_BASKET,
+            item: {
+                id: id,
+                name: name,
+                image: image,
+                price: price,
+                description: description,
+            }
+        })
+    }
+    
+    
     return (
         <Card sx={{ minWidth: 300 }} key={id}>
             <CardHeader
@@ -32,8 +51,8 @@ export default function Product({ product: { id, name, image, price, description
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label='Add to Cart'>
-                    <AddShoppingCart fontSize='large' />
+                <IconButton aria-label='Add to Cart' onClick={addToBasket}>
+                    <AddShoppingCart fontSize='large'/>
                 </IconButton>
                 <IconButton>
                     <RemoveShoppingCartIcon fontSize='large' />

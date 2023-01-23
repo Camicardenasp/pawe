@@ -11,8 +11,12 @@ import Badge from '@mui/material/Badge';
 import Pawe from '../assets/BlancoPawe.svg'
 import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
+import { useStateValue } from '../StateProvider';
 
 export default function ButtonAppBar() {
+    
+    const [{ basket }, dispatch]=useStateValue();
+    
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" color="transparent">
@@ -41,7 +45,7 @@ export default function ButtonAppBar() {
                     
                     <Link to="/checkout-page">
                         <IconButton aria-label="cart">
-                            <Badge badgeContent={4} color="secondary">
+                            <Badge badgeContent={basket?.length} color="secondary">
                                 <ShoppingCartIcon color="primary" />
                             </Badge>
                         </IconButton>
