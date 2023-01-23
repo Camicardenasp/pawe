@@ -10,8 +10,21 @@ import accounting from "accounting";
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useStateValue } from '../StateProvider';
+import { actionTypes } from '../reducer';
 
 export default function CheckoutCard({ product: { id, name, image, price, description } }) {
+    
+    const [{ basket }, dispatch]=useStateValue();
+
+    // const removeItem = () => {
+    //     dispatch({
+    //         type: actionTypes.REMOVE_ITEM,
+    //         id: id,
+    //     })
+    // }
+
+
     return (
         <Card sx={{ minWidth: 300 }} key={id}>
             <CardHeader
@@ -32,7 +45,7 @@ export default function CheckoutCard({ product: { id, name, image, price, descri
                     {accounting.formatMoney(price, "$", 0)}
                 </Typography>
             </CardContent>
-            <CardActions disableSpacing>
+            {/* <CardActions disableSpacing>
                 <IconButton aria-label='Add to Cart'>
                     <AddShoppingCart fontSize='large' />
                 </IconButton>
@@ -40,9 +53,10 @@ export default function CheckoutCard({ product: { id, name, image, price, descri
                     <RemoveShoppingCartIcon fontSize='large' />
                 </IconButton>
                 <IconButton>
-                    <DeleteIcon fontSize="large"/>
+                    <DeleteIcon fontSize="large"  />
                 </IconButton>
             </CardActions>
+             */}
         </Card>
     );
 }
