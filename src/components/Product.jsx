@@ -54,9 +54,9 @@ const [{basket}, dispatch] = useStateValue();
                 <IconButton aria-label='Add to Cart' onClick={addToBasket}>
                     <AddShoppingCart fontSize='large'/>
                 </IconButton>
-                <IconButton>
+                {/* <IconButton>
                     <RemoveShoppingCartIcon fontSize='large' />
-                </IconButton>
+                </IconButton> */}
             </CardActions>
         </Card>
     );
