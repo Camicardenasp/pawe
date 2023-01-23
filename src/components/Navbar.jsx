@@ -51,9 +51,11 @@ export default function ButtonAppBar() {
                         </IconButton>
                     </Link>
 
-                    <IconButton>
-                        <ShoppingCartCheckoutIcon color="secondary"/>
-                    </IconButton>
+                    <Link to="/checkout">
+                        <IconButton>
+                            <ShoppingCartCheckoutIcon color="secondary" />
+                        </IconButton>
+                    </Link>
 
                 </Toolbar>
             </AppBar>
