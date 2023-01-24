@@ -4,16 +4,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
-import { useStateValue } from '/src/StateProvider';
+import { useStateValue } from "../../StateProvider";
+import { getBasketTotal } from "../../reducer";
+import accounting from "accounting";
 
-
-const addresses=['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments=[
-    { name: 'Card type', detail: 'Visa' },
-    { name: 'Card holder', detail: 'Mr John Smith' },
-    { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-    { name: 'Expiry date', detail: '04/2024' },
-];
+const addresses=['Av Carrera 19 No. 160-05', 'Orquídeas'];
 
 export default function Review() {
 
@@ -22,47 +17,30 @@ export default function Review() {
     return (
         <React.Fragment>
             <Typography variant="h6" gutterBottom>
-                Order summary
+                Resumen de la Orden
             </Typography>
             <List disablePadding>
                 {basket.map((item) => (
                     <ListItem key={item.name} sx={{ py: 1, px: 0 }}>
                         <ListItemText primary={item.name} secondary={item.desc} />
-                        <Typography variant="body2">{item.price}</Typography>
+                        <Typography variant="body2">{accounting.formatMoney(item.price, "$", 0)}</Typography>
                     </ListItem>
                 ))}
 
                 <ListItem sx={{ py: 1, px: 0 }}>
                     <ListItemText primary="Total" />
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                        $34.06
+                        {accounting.formatMoney(getBasketTotal(basket), "$", 0)}
                     </Typography>
                 </ListItem>
             </List>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-                        Shipping
+                        Dirección de Entrega
                     </Typography>
-                    <Typography gutterBottom>John Smith</Typography>
+                    <Typography gutterBottom>Mariana Jiménez</Typography>
                     <Typography gutterBottom>{addresses.join(', ')}</Typography>
-                </Grid>
-                <Grid item container direction="column" xs={12} sm={6}>
-                    <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-                        Payment details
-                    </Typography>
-                    <Grid container>
-                        {payments.map((payment) => (
-                            <React.Fragment key={payment.name}>
-                                <Grid item xs={6}>
-                                    <Typography gutterBottom>{payment.name}</Typography>
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <Typography gutterBottom>{payment.detail}</Typography>
-                                </Grid>
-                            </React.Fragment>
-                        ))}
-                    </Grid>
                 </Grid>
             </Grid>
         </React.Fragment>
