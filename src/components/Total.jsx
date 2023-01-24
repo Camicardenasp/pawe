@@ -1,9 +1,9 @@
 import React from 'react'
 import accounting from "accounting";
+import { useStateValue } from "../StateProvider";
+import { getBasketTotal } from "../reducer";
+import { Link } from "react-router-dom";
 import { Button } from '@mui/material';
-import { useStateValue } from '../StateProvider';
-import {getBasketTotal} from '../reducer'
-import { Link } from 'react-router-dom';
 
 export const Total = () => {
     
@@ -16,7 +16,6 @@ export const Total = () => {
             <Link to="/checkout">
                 <Button variant='contained' color='secondary'>Check Out</Button>
             </Link>
-            
         </div>
     )
 }

@@ -24,6 +24,12 @@ export default function CheckoutCard({ product: { id, name, image, price, descri
     //     })
     // }
 
+    const removeItem=() => {
+        dispatch({
+            type: actionTypes.REMOVE_ITEM,
+            id: id,
+        });
+    };
 
     return (
         <Card sx={{ minWidth: 300 }} key={id}>
@@ -45,18 +51,11 @@ export default function CheckoutCard({ product: { id, name, image, price, descri
                     {accounting.formatMoney(price, "$", 0)}
                 </Typography>
             </CardContent>
-            {/* <CardActions disableSpacing>
-                <IconButton aria-label='Add to Cart'>
-                    <AddShoppingCart fontSize='large' />
-                </IconButton>
-                <IconButton>
-                    <RemoveShoppingCartIcon fontSize='large' />
-                </IconButton>
-                <IconButton>
-                    <DeleteIcon fontSize="large"  />
+            <CardActions disableSpacing>
+                <IconButton onClick={removeItem}>
+                    <DeleteIcon fontSize='large' />
                 </IconButton>
             </CardActions>
-             */}
         </Card>
     );
 }

@@ -1,6 +1,5 @@
 import './App.css'
 import Home from './components/Home'
-import Navbar from './components/Navbar'
 import Products from './components/Products'
 import CheckoutPage from './components/CheckoutPage'
 import Root from './components/Root'

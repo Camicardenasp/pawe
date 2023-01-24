@@ -8,18 +8,6 @@ import { useStateValue } from '../StateProvider';
 const CheckoutPage = () => {
 
     const [{ basket }, dispatch]=useStateValue();
-
-    function FormRow() {
-        return (
-            <React.Fragment>
-                {basket?.map((item) => (
-                    <Grid item xs={12} sm={8} md={6} key={item.id}>
-                        <CheckoutCard key={item.id} product={item} />
-                    </Grid>
-                ))}
-            </React.Fragment>
-        );
-    }
     
     return (
         <div>
@@ -31,7 +19,11 @@ const CheckoutPage = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={8} md={9} container spacing={2}>
-                    <FormRow />
+                    {basket?.map((item) => (
+                        <Grid item xs={12} sm={8} md={6} key={item.id}>
+                            <CheckoutCard key={item.id} product={item} />
+                        </Grid>
+                    ))}
                 </Grid >
                 <Grid item xs={12} sm={4} md={3}>
                     <Typography align='center' gutterBottom variant='h4'>
