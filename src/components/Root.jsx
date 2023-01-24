@@ -6,8 +6,8 @@ const Root = () => {
     return (
         <>
             <Navbar/>
-            <div>
-                <Outlet/>
+            <div style={{ paddingTop: 60 }}>
+                <Outlet />
             </div>
         </>
     )
