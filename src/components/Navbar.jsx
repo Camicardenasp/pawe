@@ -60,7 +60,7 @@ export default function ButtonAppBar() {
             <AppBar position="fixed" style={{ backgroundColor: "#242424" }}>
                 <Toolbar style={{ display: "flex", justifyContent: "space-around", width: "100%" }} >
 
-                    <IconButton
+                    {/* <IconButton
                         size="large"
                         aria-label="account of current user"
                         aria-controls="menu-appbar"
@@ -92,7 +92,7 @@ export default function ButtonAppBar() {
                                 </MenuItem>
                             </Link>
                         ))}
-                    </Menu>
+                    </Menu> */}
 
                     <Link to="/">
                         <Typography>
@@ -114,11 +114,11 @@ export default function ButtonAppBar() {
                         </IconButton>
                     </Link>
 
-                    <Link to="/checkout">
+                    {/* <Link to="/checkout">
                         <IconButton>
                             <ShoppingCartCheckoutIcon style={{ color: "grey", paddingRight: "30px" }} />
                         </IconButton>
-                    </Link>
+                    </Link> */}
 
                 </Toolbar>
             </AppBar>

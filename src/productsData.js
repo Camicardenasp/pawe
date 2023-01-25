@@ -18,7 +18,7 @@ const products = [
         name: "Polania",
         price: 80000,
         image: "/Polania.png",
-        description: "Bolso de Lana ",
+        description: "Bolso de Lana",
     },
     {
         id: 4,

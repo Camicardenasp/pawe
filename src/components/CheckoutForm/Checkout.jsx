@@ -34,17 +34,16 @@ export default function Checkout() {
 
     const mensaje=`Hola, me gustaría solicitar la siguiente orden a domicilio.
     *----------------------------------------*
-    *Productos:*
-    ${basket.map(item =>
+    *Productos:* ${basket.map(item =>
     `
     *----------------------------------------*
     *Producto:* ${item.name}
-    *Precio:* ${item.price}
+    *Precio:* ${accounting.formatMoney(item.price, "$", 0)}
     *Descripción:* ${item.description}
     `
     )}
     *----------------------------------------*
-    *VALOR TOTAL DE LA ORDEN:* $ ${total} `
+    *VALOR TOTAL DE LA ORDEN:* $ ${accounting.formatMoney(getBasketTotal(basket), "$", 0)} `
 
     const url=`https://api.whatsapp.com/send?phone=573013990324&text=${encodeURIComponent(mensaje)}`;
 

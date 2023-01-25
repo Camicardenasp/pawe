@@ -8,7 +8,7 @@ import Pawe from '../assets/BlancoPawe.svg'
 export default function Home() {
     return (
         <div>
-            <h1><img src={Pawe} alt="" /></h1>
+            {/* <h1><img src={Pawe} alt="" /></h1> */}
             <Link to="/products">
                 <Grid container spacing={2}>
                         <Banner />
