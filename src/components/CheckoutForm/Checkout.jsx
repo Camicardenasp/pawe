@@ -14,6 +14,7 @@ import AddressForm from './AddressForm';
 import Review from './Review';
 
 import { useStateValue } from '/src/StateProvider';
+import { getBasketTotal } from "/src/reducer";
 
 function Copyright() {
     return (
@@ -56,6 +57,37 @@ export default function Checkout() {
 
     const [{ basket }, dispatch]=useStateValue();
 
+    const data = [
+        {
+            name: "Camilo",
+            identification: "1019090905",
+            address: "AK 19 # 160-05 1H AP 401",
+            phone: "3013517021",
+        }
+    ]
+    const total= getBasketTotal(basket);
+    const mensaje = `Hola, soy ${data[0].name} y me gustaría solicitar la siguiente orden a domicilio.
+    *----------------------------------------*
+    *Datos para el envío*:
+    *Nombre:* ${data[0].name}
+    *Cédula:* ${data[0].identification}
+    *Dirección:* ${data[0].address}
+    *Teléfono:* ${data[0].phone}
+    *----------------------------------------*
+    *Productos:*
+    ${basket.map(item => 
+    `
+    *----------------------------------------*
+    *Producto:* ${item.name}
+    *Precio:* ${item.price}
+    *Descripción:* ${item.description}
+    `
+    )}
+    *----------------------------------------*
+    *VALOR TOTAL DE LA ORDEN:* $ ${total} `
+
+    const url = `https://api.whatsapp.com/send?phone=573013990324&text=${encodeURIComponent(mensaje)}`;
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -73,6 +105,7 @@ export default function Checkout() {
                         ))}
                     </Stepper>
                     {activeStep===steps.length? (
+                        window.open(url),
                         <React.Fragment>
                             <Typography variant="h5" gutterBottom>
                                 Thank you for your order.
