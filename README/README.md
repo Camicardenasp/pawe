@@ -1,6 +1,6 @@
 Esta es la documentación para una aplicación Web del Emprendimiento Pawe.
 
-![Alt text](/src/assets/LogoPawe.svg?raw=true "Distibución Inicial de las Carpetas")
+![Alt text](/src/assets/CirculoPawe.svg?raw=true "Distibución Inicial de las Carpetas")
 
 <b><i>Pawe</i></b> es un emprendimiento colombiano, ideado por la diseñadora <b>Mariana Jiménez</b>, 
                         quién después de estudiar Producción Escénica y Visual en LaSalle College Institute de Bogotá, 
