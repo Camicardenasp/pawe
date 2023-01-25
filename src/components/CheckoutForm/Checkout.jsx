@@ -1,20 +1,18 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AddressForm from './AddressForm';
-import Review from './Review';
-
 import { useStateValue } from '/src/StateProvider';
 import { getBasketTotal } from "/src/reducer";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import accounting from "accounting";
+
+const theme=createTheme();
 
 function Copyright() {
     return (
@@ -29,53 +27,15 @@ function Copyright() {
     );
 }
 
-const steps=['Dirección de Entrega', 'Revisa tu orden'];
-
-function getStepContent(step) {
-    switch (step) {
-        case 0:
-            return <AddressForm />;
-        case 1:
-            return <Review />;
-        default:
-            throw new Error('Unknown step');
-    }
-}
-
-const theme=createTheme();
-
 export default function Checkout() {
-    const [activeStep, setActiveStep]=React.useState(0);
-
-    const handleNext=() => {
-        setActiveStep(activeStep+1);
-    };
-
-    const handleBack=() => {
-        setActiveStep(activeStep-1);
-    };
 
     const [{ basket }, dispatch]=useStateValue();
+    const total=getBasketTotal(basket);
 
-    const data = [
-        {
-            name: "Camilo",
-            identification: "1019090905",
-            address: "AK 19 # 160-05 1H AP 401",
-            phone: "3013517021",
-        }
-    ]
-    const total= getBasketTotal(basket);
-    const mensaje = `Hola, soy ${data[0].name} y me gustaría solicitar la siguiente orden a domicilio.
-    *----------------------------------------*
-    *Datos para el envío*:
-    *Nombre:* ${data[0].name}
-    *Cédula:* ${data[0].identification}
-    *Dirección:* ${data[0].address}
-    *Teléfono:* ${data[0].phone}
+    const mensaje=`Hola, me gustaría solicitar la siguiente orden a domicilio.
     *----------------------------------------*
     *Productos:*
-    ${basket.map(item => 
+    ${basket.map(item =>
     `
     *----------------------------------------*
     *Producto:* ${item.name}
@@ -86,56 +46,40 @@ export default function Checkout() {
     *----------------------------------------*
     *VALOR TOTAL DE LA ORDEN:* $ ${total} `
 
-    const url = `https://api.whatsapp.com/send?phone=573013990324&text=${encodeURIComponent(mensaje)}`;
+    const url=`https://api.whatsapp.com/send?phone=573013990324&text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url);
 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-
             <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
                 <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
                     <Typography component="h1" variant="h4" align="center">
                         Checkout
                     </Typography>
-                    <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-                        {steps.map((label) => (
-                            <Step key={label}>
-                                <StepLabel>{label}</StepLabel>
-                            </Step>
+                    <Typography variant="h6" gutterBottom>
+                        Resumen de la Orden
+                    </Typography>
+                    <List disablePadding>
+                        {basket.map((item) => (
+                            <ListItem key={item.name} sx={{ py: 1, px: 0 }}>
+                                <ListItemText primary={item.name} secondary={item.desc} />
+                                <Typography variant="body2">{accounting.formatMoney(item.price, "$", 0)}</Typography>
+                            </ListItem>
                         ))}
-                    </Stepper>
-                    {activeStep===steps.length? (
-                        window.open(url),
-                        <React.Fragment>
-                            <Typography variant="h5" gutterBottom>
-                                Thank you for your order.
+                        <ListItem sx={{ py: 1, px: 0 }}>
+                            <ListItemText primary="Total" />
+                            <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                                {accounting.formatMoney(getBasketTotal(basket), "$", 0)}
                             </Typography>
-                            <Typography variant="subtitle1">
-                                Your order number is #2001539. We have emailed your order
-                                confirmation, and will send you an update when your order has
-                                shipped.
-                            </Typography>
-                        </React.Fragment>
-                    ):(
-                        <React.Fragment>
-                            {getStepContent(activeStep)}
-                            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                {activeStep!==0&&(
-                                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                                        Back
-                                    </Button>
-                                )}
-
-                                <Button
-                                    variant="contained"
-                                        onClick={handleNext}
-                                    sx={{ mt: 3, ml: 1 }}
-                                >
-                                    {activeStep===steps.length-1? 'Place order':'Next'}
-                                </Button>
-                            </Box>
-                        </React.Fragment>
-                    )}
+                        </ListItem>
+                    </List>
+                    <Typography variant="subtitle1">
+                        Te hemos redirigido a WhatsApp con los datos de tu orden 
+                        para que pidas por este medio con tu nombre y tu dirección 
+                        los productos que seleccionaste. ¡Gracias por tu compra!
+                    </Typography>
                 </Paper>
                 <Copyright />
             </Container>
