@@ -13,7 +13,7 @@ export default function Banner() {
                 <CardMedia
                     component="img"
                     height="140"
-                    image="/Home.png"
+                    image="/Home.jpg"
                     alt="green iguana"
                 />
                 <CardContent>
