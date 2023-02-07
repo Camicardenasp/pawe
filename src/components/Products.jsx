@@ -21,7 +21,7 @@ export default function Products() {
 
     const data = products;
     const allCategories=[
-        'All',
+        'Todas las categorías',
         ...new Set(data.map(article => article.category)),
     ];
 
@@ -29,7 +29,7 @@ export default function Products() {
     const [articles, setArticles]=useState(data);
 
     const filterCategory=(category) => {
-        if (category==='All') {
+        if (category==='Todas las categorías') {
             setArticles(data)
             return
         }

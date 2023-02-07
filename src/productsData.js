@@ -5,7 +5,7 @@ const products = [
         price: 200000,
         image: "/Lorax.jpg",
         description: "Bolso de Pompones",
-        category: "Bolso",
+        category: "Bolsos",
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const products = [
         price: 150000,
         image: "/Inc.jpg",
         description: "Bolso de Lana",
-        category: "Bolso",
+        category: "Bolsos",
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const products = [
         price: 80000,
         image: "/Polania.jpg",
         description: "Bolso de Lana",
-        category: "Bolso",
+        category: "Bolsos",
     },
     {
         id: 4,
@@ -45,7 +45,7 @@ const products = [
         price: 130000,
         image: "/BolsoCrochet.jpg",
         description: "Bolso de Tela",
-        category: "Bolso",
+        category: "Bolsos",
     },
 ];
 
